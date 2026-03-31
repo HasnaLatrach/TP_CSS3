@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TP CSS3 - Hasna Latrach</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --accent: #0f172a;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #dbeafe;
+      --success: #16a34a;
+      --shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+      --radius: 18px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 30%, #ffffff 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      padding: 56px 0 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      color: rgba(255,255,255,0.92);
+      font-size: 1.05rem;
+    }
+
+    nav {
+      margin-top: 24px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      padding: 10px 16px;
+      backdrop-filter: blur(6px);
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      list-style: none;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    main {
+      padding: 34px 0 56px;
+    }
+
+    .intro-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid #e2e8f0;
+      margin-bottom: 28px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .mini-card {
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .mini-card h3 {
+      font-size: 1rem;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+      scroll-margin-top: 30px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    .badge {
+      background: #dbeafe;
+      color: var(--primary-dark);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid #e2e8f0;
+    }
+
+    .question {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .question:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .question h3 {
+      font-size: 1.08rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .question p,
+    .question li {
+      color: var(--text);
+    }
+
+    .question ul,
+    .question ol {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 14px;
+      overflow-x: auto;
+      margin-top: 12px;
+      font-size: 0.95rem;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    .answer {
+      background: #f8fbff;
+      border-left: 4px solid var(--primary);
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .quiz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .quiz-item {
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .quiz-item strong {
+      color: var(--primary-dark);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      background: var(--accent);
+      color: white;
+      text-align: center;
+      padding: 26px 15px;
+      margin-top: 40px;
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 16px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .intro-grid,
+      .quiz-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding-top: 40px;
+      }
+
+      nav {
+        border-radius: 20px;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .card,
+      .intro-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <h1>TP CSS3</h1>
+      <p>
+        Réalisé par <strong>Hasna Latrach</strong>. 
+      </p>
+
+      <nav>
+        <ul>
+          <li><a href="#ex1">Exercice 1</a></li>
+          <li><a href="#ex2">Exercice 2</a></li>
+          <li><a href="#ex3">Exercice 3</a></li>
+          <li><a href="#ex4">Exercice 4</a></li>
+          <li><a href="#ex5">Exercice 5</a></li>
+          <li><a href="#ex6">Exercice 6</a></li>
+          <li><a href="#ex7">Exercice 7</a></li>
+          <li><a href="#ex8">Quiz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="intro-card">
+        <h2>Présentation</h2>
+        <p>
+          Ce site regroupe les réponses du TP du chapitre CSS3. Les solutions sont organisées exercice par exercice avec les sélecteurs, le box model, Flexbox, Grid, le responsive design, les variables CSS, les animations et le quiz final.
+        </p>
+        <div class="intro-grid">
+          <div class="mini-card">
+            <h3>Étudiante</h3>
+            <p>Hasna Latrach</p>
+          </div>
+          <div class="mini-card">
+            <h3>Module</h3>
+            <p>Développement Web </p>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="section" id="ex1">
+        <div class="section-header">
+          <h2>Exercice 1 : Sélecteurs et spécificité</h2>
+          <span class="badge">Sélecteurs CSS</span>
+        </div>
+        <div class="card">
+          <div class="question">
+            <h3>1.1 Sélecteurs</h3>
+            <ol>
+              <li>Tous les liens dans la navigation :</li>
+            </ol>
+            <pre><code>.main-nav a</code></pre>
+            <ol start="2">
+              <li>Uniquement le lien actif :</li>
+            </ol>
+            <pre><code>.main-nav a.active</code></pre>
+            <ol start="3">
+              <li>L’article qui a la classe <code>featured</code> :</li>
+            </ol>
+            <pre><code>article.featured</code></pre>
+            <ol start="4">
+              <li>Le premier paragraphe de chaque article :</li>
+            </ol>
+            <pre><code>article p:first-of-type</code></pre>
+            <ol start="5">
+              <li>Les éléments <code>li</code> pairs :</li>
+            </ol>
+            <pre><code>.main-nav li:nth-child(even)</code></pre>
+          </div>
+
+          <div class="question">
+            <h3>1.2 Spécificité</h3>
+            <div class="answer">
+              <p><strong>Ordre croissant :</strong> <code>p</code> &lt; <code>.text</code> &lt; <code>p.text</code> &lt; <code>#main</code> &lt; <code>#main .text p</code></p>
+              <p><strong>Règles de même spécificité :</strong> la dernière règle écrite l’emporte.</p>
+              <p><strong>Pourquoi éviter <code>!important</code> :</strong> cela rend le code plus difficile à maintenir et complique le débogage.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ex2">
+        <div class="section-header">
+          <h2>Exercice 2 : Box Model</h2>
+          <span class="badge">Dimensions et centrage</span>
+        </div>
+        <div class="card">
+          <div class="question">
+            <h3>2.1 Comprendre le Box Model</h3>
+            <pre><code>.box {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid #333;
+  margin: 15px;
+}</code></pre>
+            <div class="answer">
+              <p><strong>1.</strong> Avec <code>box-sizing: content-box</code>, la largeur totale visible est <strong>350px</strong>.</p>
+              <p><strong>2.</strong> Avec <code>box-sizing: border-box</code>, la largeur totale visible est <strong>300px</strong>.</p>
+            </div>
+            <p>Reset CSS universel :</p>
+            <pre><code>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}</code></pre>
+          </div>
+
+          <div class="question">
+            <h3>2.2 Centrer un élément</h3>
+            <p>Pour centrer horizontalement un <code>div</code> de 600px :</p>
+            <pre><code>div {
+  width: 600px;
+  margin: 0 auto;
+}</code></pre>
+            <p>Pour le centrer horizontalement et verticalement :</p>
+            <pre><code>body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  width: 600px;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ex3">
+        <div class="section-header">
+          <h2>Exercice 3 : Flexbox</h2>
+          <span class="badge">Disposition flexible</span>
+        </div>
+        <div class="card">
+          <div class="question">
+            <h3>3.1 Barre de navigation</h3>
+            <pre><code>.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}</code></pre>
+          </div>
+
+          <div class="question">
+            <h3>3.2 Cartes de même hauteur</h3>
+            <pre><code>.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.card-link {
+  margin-top: auto;
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ex4">
+        <div class="section-header">
+          <h2>Exercice 4 : CSS Grid</h2>
+          <span class="badge">Mise en page en grille</span>
+        </div>
+        <div class="card">
+          <div class="question">
+            <h3>4.1 Grille de cartes responsive</h3>
+            <pre><code>.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}</code></pre>
+          </div>
+
+          <div class="question">
+            <h3>4.2 Layout complet avec Grid Areas</h3>
+            <pre><code>.page-layout {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ex5">
+        <div class="section-header">
+          <h2>Exercice 5 : Responsive Design</h2>
+          <span class="badge">Mobile First</span>
+        </div>
+        <div class="card">
+          <pre><code>/* Base mobile */
+.container {
+  width: 100%;
+  padding: 15px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.content {
+  display: block;
+}
+
+.sidebar {
+  display: none;
+}
+
+/* Tablette */
+@media (min-width: 768px) {
+  .nav-menu {
+    flex-direction: row;
+  }
+
+  .content {
+    display: flex;
+    gap: 20px;
+  }
+
+  .sidebar {
+    display: block;
+    width: 30%;
+  }
+
+  .main-content {
+    width: 70%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+  }
+
+  .sidebar {
+    display: block;
+    width: auto;
+  }
+}</code></pre>
+        </div>
+      </section>
+
+      <section class="section" id="ex6">
+        <div class="section-header">
+          <h2>Exercice 6 : Variables CSS et thèmes</h2>
+          <span class="badge">Theme clair / sombre</span>
+        </div>
+        <div class="card">
+          <pre><code>:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --primary-color: #0066cc;
+  --card-color: #f5f5f5;
+}
+
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --primary-color: #4da6ff;
+  --card-color: #1e1e1e;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-color);
+}
+
+a,
+button {
+  color: var(--primary-color);
+}</code></pre>
+        </div>
+      </section>
+
+      <section class="section" id="ex7">
+        <div class="section-header">
+          <h2>Exercice 7 : Transitions et animations</h2>
+          <span class="badge">Effets visuels</span>
+        </div>
+        <div class="card">
+          <div class="question">
+            <h3>7.1 Bouton animé</h3>
+            <pre><code>button {
+  background: #0066cc;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background: #004999;
+  transform: scale(1.05);
+}</code></pre>
+          </div>
+
+          <div class="question">
+            <h3>7.2 Spinner de chargement</h3>
+            <pre><code>.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #0066cc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ex8">
+        <div class="section-header">
+          <h2>Exercice 8 : Quiz de révision</h2>
+          <span class="badge">Réponses finales</span>
+        </div>
+        <div class="card">
+          <div class="quiz-grid">
+            <div class="quiz-item">
+              <strong>Question 1</strong>
+              <p>Le sélecteur ayant la plus haute spécificité est : <strong>#header a</strong></p>
+            </div>
+            <div class="quiz-item">
+              <strong>Question 2</strong>
+              <p>Avec <code>box-sizing: border-box</code>, la largeur totale est : <strong>200px</strong></p>
+            </div>
+            <div class="quiz-item">
+              <strong>Question 3</strong>
+              <p>Pour centrer avec Flexbox : <strong>justify-content: center</strong> et <strong>align-items: center</strong></p>
+            </div>
+            <div class="quiz-item">
+              <strong>Question 4</strong>
+              <p><code>1fr</code> signifie : <strong>1 fraction de l’espace disponible</strong></p>
+            </div>
+            <div class="quiz-item">
+              <strong>Question 5</strong>
+              <p>L’approche Mobile First utilise : <strong>min-width</strong> dans les media queries</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>TP CSS3 - Hasna Latrach</p>
+  </footer>
+
+  <button class="top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Haut</button>
+</body>
+</html>
